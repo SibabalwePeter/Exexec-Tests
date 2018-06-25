@@ -11,7 +11,3 @@ createTestCafe('localhost', 1337, 1338)
             .browsers(['chrome'])
             .run();
     })
-    .then(failedCount => {
-        console.log('Tests failed: ' + failedCount);
-        testcafe.close();
-    });
