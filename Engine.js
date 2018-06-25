@@ -7,7 +7,12 @@ createTestCafe('localhost', 1337, 1338)
         const runner = testcafe.createRunner();
 
         return runner
-            .src(['signIn.js'])
+            .src(["test1.js", "test2.js"])
             .browsers(['chrome'])
             .run();
     })
+
+    .then(failedCount => {
+        console.log('Tests failed: ' + failedCount);
+        testcafe.close();
+    });

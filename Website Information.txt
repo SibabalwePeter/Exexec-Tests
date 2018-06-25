@@ -1,0 +1,59 @@
+Specify a Top Main Logo    Specify a Top Main Logo
+Menu   Account  
+Hello Brendon 0
+
+Home
+
+Leaderboard
+
+Received Smiles
+
+Sent Smiles
+
+Reports
+
+Admin
+Platform Administrators
+Find Platform Administrator   
+Image	User Name	First Name	Last Name	Is Employee	Active	
+
+bwebber@singular.co.za	Brendon	Webber			
+
+acronwright@singular.co.za	Andrew	Cronwright			
+
+jamie.king@xexec.com	Jamie	King			
+
+nwatson@singularsystems.co.uk	Nicolas	Watson			
+
+alison.barrett@xexec.com	Alison	Barrett			
+
+test2.test@singular.co.za	Test1	Test			
+
+kpurves@singular.co.za	Kirstin	Purves			
+
+fbrown@healthshield.co.uk	Felicity	Brown			
+
+jyotika.halai@xexec.com	Jyotika	Halai			
+
+darren.chertkow@xexec.com	Darren	Chertkow			
+
+jyotika.halai@gmail.com	Jyotika	Halai			
+SMILE STATS
+This Month	
+Smiles to send	462
+Total	
+Smiles sent	39
+Smiles received	0
+SMILE FEED
+ Sibabalwe Peter
+ Sibabalwe Peter
+ Sibabalwe Peter
+ Sibabalwe Peter
+ Sibabalwe Peter
+ Sibabalwe Peter
+ Sibabalwe Peter
+ Brenda1 Tester1
+ Brenda1 Tester1
+ Brenda1 Tester1
+MESSAGES
+© Xexec 2018

@@ -10,7 +10,7 @@ export default class Page {
         this.coreBehavior = Selector("#dashboard-container > div.master-center.master-column > div > div.nominate-content-container > div.nominate-award-details-container > div.col-container > div:nth-child(1) > div > div");
         this.reason = Selector("[data-datafield=RewardReason]");
         this.personalMessage = Selector("[data-datafield=PersonalMessage]");
-        this.next = Selector("#NextButton");
+        
         this.confirmationMessage = Selector("#dashboard-container > div.master-center.master-column > div > div.bread-crumb-container.nominate-bread-crumb-container > ol > li:nth-child(7) > span");
         this.recentAwards = Selector('#mCSB_1_container > div:nth-child(1) > div.recent-award');               
         this.password = Selector("[data-datafield=Password]");
