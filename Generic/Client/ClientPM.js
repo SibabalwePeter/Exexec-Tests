@@ -1,6 +1,6 @@
 import { Selector } from 'testcafe';
 
-export default class Required {
+export default class Client {
     constructor () {
         this.icoAdmin = Selector('#side-menu > div > div:nth-child(7) > span')
         this.btnClients = Selector('#mCSB_4_container > div:nth-child(1)')
@@ -22,8 +22,8 @@ export default class Required {
         this.dropUserLoginIdentifier = Selector('[data-datafield=UserIdentifier]')
         this.dropUserLoginIdentifierChoice = Selector('body > div.ComboDropDown > div > div:nth-child(1)')
         this.dropUserregistrationType = Selector('[data-datafield=UserRegistrationType]')
-        this.dropUserregistrationTypeChoice = Selector('body > div.ComboDropDown > div > div:nth-child(1)')
-    
+        this.dropUserRegistrationTypeChoice = Selector('body > div.ComboDropDown > div > div:nth-child(1)')
+        
         // plartform details
         this.dropClientLevel = Selector('[data-datafield=ClientLevelID]')
         this.dropCleintLevelChoice = Selector('body > div.ComboDropDown > div > div:nth-child(2)')

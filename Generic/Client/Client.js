@@ -66,6 +66,8 @@ test('CreateClient - as admin', async t => {
         // Authentication session
         .click(clientPage.dropUserLoginIdentifier)
         .click(clientPage.dropUserLoginIdentifierChoice)
+        .click(clientPage.dropUserregistrationType)
+        .click(clientPage.dropUserRegistrationTypeChoice)
 
         // plartform details
         .click(clientPage.dropClientLevel)
