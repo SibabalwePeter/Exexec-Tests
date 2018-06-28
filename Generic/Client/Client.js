@@ -48,7 +48,6 @@ test('CreateClient - as admin', async t => {
         // navigate to new client
         .click(clientPage.icoAdmin)
         .click(clientPage.btnClients)
-        .debug()
         .click(clientPage.btnNewClient)
 
         // company details 
