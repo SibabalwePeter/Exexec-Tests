@@ -17,9 +17,8 @@ var User = function(typeOfUser){
 
 var awardScheme = {
     name: 'Team Test',
-    displayOrder: '4',
+    displayOrder: '5',
     ecardLinked: 'Test'
-
 }
 
 const singInPage = new SignIn()

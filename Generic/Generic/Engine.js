@@ -7,7 +7,7 @@ createTestCafe('localhost', 1337, 1338)
         const runner = testcafe.createRunner();
 
         return runner
-            //.src(["Log In/SignIn.js", "Client/Client.js", "Award/Award.js", "Staff Member/Staff.js", Staff Member/Staff.js", "Nominations/ColleageNomination.js", "Award/TeamAward.js"])
+            .src(["Log In/SignIn.js", "Client/Client.js", "Award/Award.js", "Staff Member/Staff.js", "Nominations/ColleageNomination.js", "Award/TeamAward.js", "Nominations/TeamNomination.js"])
             .browsers(['chrome'])
             .run();
     })

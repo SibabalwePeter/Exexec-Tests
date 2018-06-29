@@ -1,16 +1,18 @@
 import SignIn from './SignInPM';
+import { Selector } from 'testcafe';
 
 fixture `Check admin Access`
-    .page `https://singular.singularwebsites.co.za/xexec/Dashboard`;
+    //.page `https://singular.singularwebsites.co.za/xexec/Dashboard`; // Singular HealthShield
+    .page `https://testx.singularwebsites.co.za/xexec`; // Testx HealthShieled
 
 var User = function(typeOfUser){
     this.password = 'Passw0rd';
    
     if(typeOfUser == 'admin'){
-        this.username = 'acronwright@singular.co.za';
+        this.username = 'bwebber@singular.co.za';
     }
     else if(typeOfUser == 'normal'){ 
-        this.username = 'bwebber@singular.co.za';
+        this.username = 'speter@singulr.co.za';
     }
 }
 
@@ -42,7 +44,8 @@ test('Administration - Login - normal user', async t => {
         .typeText(singInPage.txtPassword, user2.password)
         .typeText(singInPage.txtUserName, user2.username)
         .click(singInPage.btnLog)
-        //.expect(singInPage.icoAdmin.textContent).notContains('Admin')
-        //.expect(singInPage.icoReports.textContent).notContains('Reports')
-});
+        .debug()
+        .click(Selector('#mCSB_3_container > div > div:nth-child(4)'))
+        .expect(Selector('#dashboard-container > div.master-center.master-column > div > div.nominate-content-container > div.nominate-individual-container > div > div.employee-lookup-criteria > span.label.lookup-label').innerText).contains('Your Colleague')
+});     
 

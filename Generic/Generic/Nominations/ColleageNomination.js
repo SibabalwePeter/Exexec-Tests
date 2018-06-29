@@ -39,6 +39,7 @@ fixture `Colleage Nomination`
         .click(SignInPage.btnLog)
 
         // Nominate someone 
+        .debug()
         .click(nominatePage.icoSendSmile)
         .click(nominatePage.btnChooseAward)
         

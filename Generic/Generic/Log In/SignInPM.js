@@ -8,5 +8,6 @@ export default class Required {
         this.btnLog = Selector('.landing-buttons .col-container .col1 .btn-primary')
         this.icoAdmin = Selector('#side-menu > div > div:nth-child(7) > span')
         this.icoReports = Selector('#side-menu > div > div:nth-child(8) > span')
+        this.icoSideBar = Selector('#side-menu > div > div')
     }
 }
