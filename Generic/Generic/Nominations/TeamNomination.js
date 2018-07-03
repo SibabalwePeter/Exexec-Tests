@@ -1,11 +1,11 @@
-import SignIn from '../Log In/SignInPM';
-import CreateNominations from './NominationPM';
+import SignIn from '../Page Models/SignInPM';
+import CreateNominations from '../Page Models/NominationPM';
 import { Selector } from 'testcafe';
 
 fixture `Team Nomination`
     .page `https://testx.singularwebsites.co.za/xexec`;
 
-    var team = {Name: "Test Team3", personalMessage: "Test", Reason: "Test" };
+    var team = {Name: "Test Team4", personalMessage: "Test", Reason: "Test" };
     var member = {name: "Test"}
 
     var User = function(typeOfUser){
@@ -17,10 +17,6 @@ fixture `Team Nomination`
         else if(typeOfUser == 'normal'){ 
             this.username = 'speter@singulr.co.za';
         }
-    }
-
-    var actionTarget = function() {
-        return $("#mCSB_8_container").find(":containsExcludeChildren(test)");
     }
 
     const nominatePage = new CreateNominations();
@@ -40,7 +36,7 @@ fixture `Team Nomination`
             .debug()
             .click(nominatePage.icoSendSmile)
             .click(nominatePage.btnTeamChooseAward)
-            .click(Selector('#NewTeamButton')) // temporary
+            //.click(Selector('#NewTeamButton')) // temporary
             .typeText(nominatePage.txtTeamName,  team.Name)
             .click(nominatePage.txtSearchMember)
             .typeText(nominatePage.txtSearchMember, member.name)
@@ -65,4 +61,16 @@ fixture `Team Nomination`
             .expect(nominatePage.confirmationMessage.innerText).contains('award is now on its way') 
             .click(nominatePage.btnNext) 
             .expect(nominatePage.recentAwards.innerText).contains(team.Name)
-    });
+
+             // My award section
+            .click(nominatePage.icoMyAward)
+            .click(nominatePage.lblAwardDetails)
+            .expect(nominatePage.lblNomineeTeam.innerText).contains(team.Name)
+            .expect(nominatePage.lblCoreValue.innerText).contains('INTEGRITY') 
+            .expect(nominatePage.lblReasonTeam.innerText).contains(team.Reason)
+            
+            // Spotlight section
+            .click(nominatePage.icoSpotLight)
+            .expect(nominatePage.lblTeamSpotLightName.innerText).contains('INTEGRITY')
+            .expect(nominatePage.lblTeamNameInSpotLight.innerText).contains(team.Name)
+        });

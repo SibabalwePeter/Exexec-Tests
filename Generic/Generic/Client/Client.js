@@ -1,5 +1,5 @@
-import CreateClient from './ClientPM';
-import SignIn from '../Log In/SignInPM'
+import CreateClient from '..Page Models/ClientPM';
+import SignIn from '../Page Models/SignInPM'
 
 fixture `Testing Client`
     .page `https://singularwebsites.co.za/xexec/Dashboard`;

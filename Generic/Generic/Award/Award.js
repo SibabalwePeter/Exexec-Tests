@@ -1,5 +1,5 @@
-import CreatAwardScheme from './AwardPM';
-import SignIn from '../Log In/SignInPM';
+import CreatAwardScheme from '..Page Models/AwardPM';
+import SignIn from '../Page Models/SignInPM';
 
 fixture `Award Scheme`
     .page `https://testx.singularwebsites.co.za/xexec/Dashboard`;

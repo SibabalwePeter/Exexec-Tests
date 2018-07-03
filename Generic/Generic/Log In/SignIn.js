@@ -1,4 +1,5 @@
-import SignIn from './SignInPM';
+import SignIn from '../Page Models/SignInPM';
+import SpotLight from '../Page Models/ReportPM'
 import { Selector } from 'testcafe';
 
 fixture `Check admin Access`
@@ -17,9 +18,9 @@ var User = function(typeOfUser){
 }
 
 const singInPage = new SignIn()
+const ReportPage = new SpotLight()
 
-
-test('Administration - Login - admin', async t => {
+test('Administration - Login as adnmin', async t => {
 
     const  user = new User('admin');
 
@@ -33,12 +34,28 @@ test('Administration - Login - admin', async t => {
         .expect(singInPage.icoReports.textContent).contains('Reports')
 });
 
+test('Administration - Admin access to reports', async t => {
+
+    const  user = new User('admin');
+
+    await t
+        .maximizeWindow()
+        .click(singInPage.btnSignIn)
+        .typeText(singInPage.txtUserName, user.username)
+        .typeText(singInPage.txtPassword, user.password)
+        .click(singInPage.btnLog)
+        .debug()
+
+        .click(ReportPage.icoReports)
+        .click(ReportPage.dropReport)
+        .expect(ReportPage.dropReportChoice.innerText).contains('All Nominations')
+});
+
 test('Administration - Login - normal user', async t => {
 
     const  user2 = new User('normal');
 
     await t
-    
         .maximizeWindow()
         .click(singInPage.btnSignIn)
         .typeText(singInPage.txtPassword, user2.password)
@@ -46,6 +63,25 @@ test('Administration - Login - normal user', async t => {
         .click(singInPage.btnLog)
         .debug()
         .click(Selector('#mCSB_3_container > div > div:nth-child(4)'))
+        //.takeScreenshot('./screenshots')
         .expect(Selector('#dashboard-container > div.master-center.master-column > div > div.nominate-content-container > div.nominate-individual-container > div > div.employee-lookup-criteria > span.label.lookup-label').innerText).contains('Your Colleague')
-});     
+});
+
+test('Administration - check normal user access to reports', async t => {
+
+    const  user2 = new User('normal');
+    const countIcons = Selector('#side-menu > div').count
+    await t
+        .maximizeWindow()
+        .click(singInPage.btnSignIn)
+        .typeText(singInPage.txtPassword, user2.password)
+        .typeText(singInPage.txtUserName, user2.username)
+        .click(singInPage.btnLog)
+        .wait(10000)
+        .expect((await singInPage.countIcons).count).eql(6)
+});
+
+
+
+
 

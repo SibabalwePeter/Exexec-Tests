@@ -1,10 +1,10 @@
-import SignIn from '../Log In/SignInPM';
-import CreateNominations from './NominationPM';
+import SignIn from '../Page Models/SignInPM';
+import CreateNominations from '../Page Models/NominationPM';
 
 fixture `Colleage Nomination`
     .page `https://testx.singularwebsites.co.za/xexec`;
 
-    var nominee = {FullName: "Sibabalwe Peter", userName: 'speter@singulr.co.za', password: 'Passw0rd', awardType: "Siba Test card", date: Date.prototype};
+    //var nominee = {FullName: "Sibabalwe Peter", userName: 'speter@singulr.co.za', password: 'Passw0rd', awardType: "Siba Test card", date: Date.prototype};
 
     var User = function(typeOfUser){
         this.password = 'Passw0rd';
@@ -20,7 +20,8 @@ fixture `Colleage Nomination`
     var nominee ={
         FullName: 'Test6 test',
         Reason: 'Test',
-        PersonalMessage: 'Test'
+        PersonalMessage: 'test',
+        
     }
 
 
@@ -60,5 +61,17 @@ fixture `Colleage Nomination`
         .wait(1000)
         .expect(nominatePage.confirmationMessage.innerText).contains('award is now on its way') 
         .click(nominatePage.btnNext) 
-        .expect(nominatePage.recentAwards.innerText).contains(nominee.FullName) 
+        .expect(nominatePage.recentAwards.innerText).contains(nominee.FullName)
+
+        // My award section
+        .click(nominatePage.icoMyAward)
+        .click(nominatePage.lblAwardDetails)
+        .expect(nominatePage.lblNominee.innerText).contains(nominee.FullName)
+        .expect(nominatePage.lblValue.innerText).contains('INTEGRITY') 
+        .expect(nominatePage.lblPersonalMessage.innerText).contains(nominee.PersonalMessage)
+
+        // 
+        .click(nominatePage.icoSpotLight)
+        .expect(nominatePage.lblColleageSpotlightName.innerText).contains('INTEGRITY')
+        .expect(nominatePage.lblTeamNameInSpotLight.innerText).contains(nominee.FullName)
     }); 

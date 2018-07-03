@@ -1,5 +1,5 @@
-import CreateeCard from './eCardPM';
-import SignIn from '../Log In/SignInPM';
+import CreateeCard from '../Page Models/eCardPM';
+import SignIn from '../Page Models/SignInPM';
 
 fixture `Testing eCard`
     .page `https://testx.singularwebsites.co.za/xexec/Dashboard`;

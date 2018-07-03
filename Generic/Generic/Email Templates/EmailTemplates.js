@@ -1,4 +1,4 @@
-import SignIn from '../Log In/SignInPM';
+import SignIn from '../Page Models/SignInPM';
 import CreateEmailTemplate from './EmailTemplatePM';
 
 fixture `Team Nomination`

@@ -13,22 +13,25 @@ fixture `Award Scheme`
         else if(typeOfUser == 'normal'){ 
             this.username = 'bwebber@singular.co.za';
         }
+        else if(typeOfUser == 'Line Manager'){
+            this.username = 'speter2@singular.co.za';
+        }
     }
+    
 
     var person = {
-        EmployeeCode: 'Testuser2',
-        WorkEmail: 'Test@ndfkgnkdf',
-        FirstName: 'Test6',
-        Surname: 'test',
-        Fullname: 'Test6 Test'
+        EmployeeCode: 'Test Line Manager',
+        WorkEmail: 'speter2@singular.co.za',
+        FirstName: 'Test Line ',
+        Surname: 'Manager',
+        Fullname: 'Test Line'
     }
 
     const singInPage = new SignIn()
     const newProfilePage = new CreateNewProfile()
-    const  user = new User('admin')
 
-    test('Create Award Scehme', async t => {
-    
+    /*test('Create Line manager', async t => {
+        const  user = new User('admin')
         await t
          // Log In
          .maximizeWindow()
@@ -38,7 +41,7 @@ fixture `Award Scheme`
          .click(singInPage.btnLog)
         
          // naviage to page
-         .click(newProfilePage.icoAdmin)
+          .click(newProfilePage.icoAdmin)
          .click(newProfilePage.btnStaffData)
          .click(newProfilePage.btnNewProfile) 
         
@@ -46,14 +49,36 @@ fixture `Award Scheme`
          .typeText(newProfilePage.txtEmployeeCode, person.EmployeeCode)
          .typeText(newProfilePage.txtWorkEmail, person.WorkEmail)
          .typeText(newProfilePage.txtFirstName, person.FirstName)
-         .typeText(newProfilePage.txtSurname, person.Surname) 
+         .typeText(newProfilePage.txtSurname, person.Surname)
+         .click(newProfilePage.cheIsLinemanager) 
 
          // save and proof
         .click(newProfilePage.btnSave)
         .click(newProfilePage.lblStaffData)
         .click(newProfilePage.btnFind)
         .typeText(newProfilePage.txtSearch, person.Fullname)
-        .expect(newProfilePage.NewProfile.textContent).contains(person.WorkEmail) 
+        .expect(newProfilePage.NewProfile.textContent).contains(person.WorkEmail)
+
+    }); */
+
+    test('check Line manager reports', async t => {
+        const  user = new User('Line Manager')
+        await t
+            // Log In
+            .maximizeWindow()
+            .click(singInPage.btnSignIn)
+            .typeText(singInPage.txtUserName, user.username)
+            .typeText(singInPage.txtPassword, user.password)
+            .click(singInPage.btnLog)
+        
+            // save and proof
+            
+            .click(newProfilePage.icoReport)
+            .click(newProfilePage.dropReport)
+            .expect(newProfilePage.dropReportChoice.innerText).contains('Nominations for Line Manager')
+
+            // reports
     });
 
-    //.expect(Selector(nominate.nomaneeNameOnProv).innerText).contains(nomanee.FullName)
+
+
